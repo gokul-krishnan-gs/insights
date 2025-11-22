@@ -374,3 +374,128 @@ git merge <branch>      # Merge branch
 - Git stores full snapshots, not just diffs
 - The `.git` directory contains everything
 - More specific configs override general ones
+- 
+
+---
+
+## Remote Repositories
+
+In git, another repo is called a **"remote"**.
+
+### Adding a Remote
+
+```bash
+git remote add <name> <uri>
+```
+
+**Example:**
+```bash
+git remote add origin https://github.com/gokul-krishnan-gs/git-learning.git
+```
+
+`git remote` is the command used to manage URLs of remote repositories (like GitHub, GitLab, Bitbucket).
+
+**Important:** Your local Git repo doesn't know where to push or pull until you add a remote.
+
+### Show Remote Details
+
+```bash
+git remote show remotename
+```
+
+Shows the details of the remote info.
+
+**Tip:** `origin` → your main GitHub repo
+
+---
+
+## Fetch
+
+```bash
+git fetch
+```
+
+Downloads the latest commits, branches, and metadata from a remote repository **without merging anything** into your local branch.
+
+### Why developers use git fetch?
+
+To see what changed before merging.
+
+### Log Remote
+
+```bash
+git log [<remote>/<branch>]
+```
+
+### List Remote URLs
+
+```bash
+git ls-remote
+```
+
+Gives the URL where the remote was added.
+
+**Note:** Git ≠ GitHub
+
+---
+
+## Push
+
+The `git push` command pushes (sends) local changes to any "remote".
+
+For example, to push our local main branch's commits to the remote origin's main branch:
+
+```bash
+git push origin main
+```
+
+### First Time Pushing
+
+```bash
+git push -u origin main
+```
+
+Then subsequently:
+
+```bash
+git push
+```
+
+---
+
+## Pull
+
+```bash
+git pull [<remote>/<branch>]
+```
+
+### 🚀 What is git pull?
+
+**git pull = git fetch + git merge**
+
+It does TWO things automatically:
+
+1. Downloads the latest changes from the remote branch
+2. Merges those changes into your current branch
+
+So your working directory changes immediately.
+
+Developers merge branches on GitHub through pull requests.
+
+`git pull` helps you get the latest code from the remote repository into your local machine.
+
+### 🔥 Example
+
+You are on main and want the latest code:
+
+```bash
+git pull origin main
+```
+
+Now your local main is updated with the remote main.
+
+---
+
+## Git Ignore
+
+`.gitignore` is a file. Inside, if we give the name of files and folders, it doesn't track the changes.
